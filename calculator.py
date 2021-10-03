@@ -116,7 +116,7 @@ button_divide = Button(root, text="/",padx=41,pady=20, command=button_divide, bg
 button_exponent = Button(root, text="xʸ",padx=140,pady=20, command=button_exponent, bg='#A9A9A9')
 button_root = Button(root, text="√", padx=140, pady=20 ,command = button_root, bg='#A9A9A9')
 
-# Putting the button on the screen
+# Putting the buttons on the screen
 button_1.grid(row=3, column=0)
 button_2.grid(row=3, column=1)
 button_3.grid(row=3, column=2)
