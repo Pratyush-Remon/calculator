@@ -23,20 +23,28 @@ def button_add():
    e.delete(0, END)
 
 def button_equal():
-    second_number=e.get()
+    second_number=int(e.get())
+    first_number = f_num
     e.delete(0, END)
     if math== "addition":
-        e.insert(0, f_num + int(second_number))
+        e.insert(0, f_num + second_number)
 
     if math== "subtraction":
-        e.insert(0, f_num - int(second_number))
+        e.insert(0, f_num - second_number)
 
     if math== "multiplication":
-        e.insert(0, f_num * int(second_number))
-
+        e.insert(0, f_num * second_number)
 
     if math== "division":
-        e.insert(0, f_num / int(second_number))
+        e.insert(0, f_num / second_number)
+        
+    if math== "exponential":
+        initial = first_number
+        e.insert(0, str(initial**second_number))
+
+    if math== "root":
+        initial = first_number
+        e.insert(0, str(initial**(1/second_number)))
 
 def button_subtract():
     first_number = e.get()
@@ -65,6 +73,24 @@ def button_divide():
     e.delete(0, END)
     return
 
+def button_exponent():
+    first_number = e.get()
+    global f_num
+    global math
+    math="exponential"
+    f_num = int(first_number)
+    e.delete(0, END)
+    return
+
+def button_root():
+    first_number = e.get()
+    global f_num
+    global math
+    math="root"
+    f_num = int(first_number)
+    e.delete(0, END)
+    return   
+
 
 
 button_1 = Button(root, text="1",padx=40,pady=20, command=lambda: button_click(1), bg='#A9A9A9')
@@ -87,6 +113,9 @@ button_clear = Button(root, text="<-----", padx=79, pady=20, command=button_clea
 button_subtract = Button(root, text="-",padx=40,pady=20, command=button_subtract, bg='#A9A9A9') 
 button_multiply = Button(root, text="*",padx=44,pady=20, command=button_multiply, bg='#A9A9A9') 
 button_divide = Button(root, text="/",padx=41,pady=20, command=button_divide, bg='#A9A9A9') 
+button_exponent = Button(root, text="xʸ",padx=140,pady=20, command=button_exponent, bg='#A9A9A9')
+button_root = Button(root, text="√", padx=140, pady=20 ,command = button_root, bg='#A9A9A9')
+
 # Putting the button on the screen
 button_1.grid(row=3, column=0)
 button_2.grid(row=3, column=1)
@@ -108,6 +137,9 @@ button_equal.grid(row=5, column=1, columnspan=2)
 button_subtract.grid(row=6,column=0)
 button_multiply.grid(row=6,column=1)
 button_divide.grid(row=6,column=2)
+button_exponent.grid(row=7, column=0, columnspan=3)
+button_root.grid(row=8, column=0, columnspan=3)
+
 
 
 
